@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Live weather app</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body{
+            font-size: 1.5rem;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #3498db;
+        }
+        input{
+        text-align: center;
+          height: 60px;
+           width: 400px;
+           font-size: 1.4rem;
+           letter-spacing: 1px;
+           text-transform: capitalize;
+           outline: none;
+           border: none;
+           background:white;
+           border-radius: 40px;
+           color: #2ecc71;
+           border: 3px solid #34495e;
+          
+        }
+  
+        #Search-button{
+            background-color: #34495e;
+            border: none;
+            outline: none;
+            height: 50px;
+            width:170px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        #userinput{
+            text-align: center;
+        }
+        ::placeholder{
+            text-align: center;
+            color:  #3498db;
+        }
+   center{
+    font-size: 30px;
+    
+   }
+ 
+        h1{
+            font-size: 2rem;
+            letter-spacing: 1.2px;
+            color: #34495e;
+            text-shadow: 2px 2px 1px white;
+        }
+  
+        center{
+            background-image: url(weather2.jpg);
+            background-repeat: no-repeat;
+           margin: 10px;
+          border-radius: 20px;
+          padding: 10px;
+          color: white;
+          border:4px solid white;
+        }
+         #a, a{
+            color: black;
+            text-indent: 25px;
+           text-align: center;
+       background-color: wheat;
+       padding: 10px;
+
+        }
+
+    </style>
+</head>
+<body>
+  
+    <h1>Live Weather Tracker.....</h1>
+    <div id="userinput">
+   <input type="text" id="city-input" placeholder="Search here city name."> <br> <br>
+   <button id="Search-button">GET DATA</button>
+    </div>
+   
+
+
+    <div id="data">
+      <center>
+        <h3 id="city-name" style="color: white;">You searched... </h3>
+        <h3 id="city-country" style="color: white;">Country...</h3>
+        <h6 id="city-temp">Tempreature...</h6>
+        <h6 id="city-condition">condition Status...</h6>
+        <h6 id="city-humidity"> Humidity</h6>
+    </center>
+        </div>
+        <div id="a">
+            <p>Contact developer 
+            </p><p> Rajnish Kumar </p>
+            <a href="tel:9570986396"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://wa.me/919065407531"><i class="fa-brands fa-square-whatsapp"></i></a>
+            <a href="mailto:rockstarrajnish4658@gmail.com"> <i class="fa-solid fa-envelope"></i></a>
+            <a href="https://github.com/Rajnish9570" target="_blank"><i class="fa-brands fa-github"></i></a>
+        </div>
+       
+  
+
+    <script >
+        const button = document.getElementById("Search-button");
+const input = document.getElementById("city-input");
+
+const cityName=document.getElementById('city-name');
+const cityCountry=document.getElementById('city-country');
+const cityTemp=document.getElementById('city-temp');
+const cityStatus=document.getElementById('city-condition');
+const cityHumidity=document.getElementById('city-humidity');
+
+  async function getData(cityName){ 
+const Promise= await fetch(`http://api.weatherapi.com/v1/current.json?key=d0ada920afd4498eaeb134243242103 &q=${cityName}&aqi=yes`);
+return await Promise.json();
+}
+
+button.addEventListener("click" , async () =>{
+const value = input.value;
+const result = await getData(value);
+cityName.innerText =`${result.location.name}, ${result.location.region}`;
+cityCountry.innerText = result.location.country;
+cityTemp.innerText = result.current.temp_c +' deg C / ' + result.current.temp_f + " deg F";
+cityHumidity.innerText = " Humidity is " + result.current.humidity + '%';
+cityStatus.innerText = result.current.condition.text;
+});
+    </script>
+</body>
+</html>
