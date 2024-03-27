@@ -1,0 +1,24 @@
+{
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Vary": "Accept-Encoding",
+    "CDN-PullZone": "93447",
+    "CDN-Uid": "8fa3a04a-75d9-4707-8056-b7b33c8ac7fe",
+    "CDN-RequestCountryCode": "GB",
+    "Age": "0",
+    "x-weatherapi-qpm-left": "4999778",
+    "CDN-ProxyVer": "1.04",
+    "CDN-RequestPullSuccess": "True",
+    "CDN-RequestPullCode": "200",
+    "CDN-CachedAt": "03/27/2024 10:17:55",
+    "CDN-EdgeStorageId": "1054",
+    "CDN-Status": "200",
+    "CDN-RequestId": "d26cbe5806d8eacfab565ac39262be1c",
+    "CDN-Cache": "MISS",
+    "Cache-Control": "public, max-age=180",
+    "Content-Type": "application/json",
+    "Date": "Wed, 27 Mar 2024 10:17:55 GMT",
+    "Server": "BunnyCDN-DE1-1076",
+    "Via": "1.1 varnish (Varnish/6.0)"
+  }
+  
